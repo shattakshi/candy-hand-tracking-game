@@ -25,12 +25,29 @@ body, html {
 }
 
 /* POSTER PAGE */
-.poster-bg {
+/* POSTER PAGE */
+.poster-page {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;         /* FULL SCREEN */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster-bg {
+  position: absolute;     /* FIXES the image floating issue */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;          /* FULL SCREEN exactly */
   object-fit: cover;
+  z-index: -1;            /* Send image behind title & button */
   filter: brightness(0.7);
 }
+
 
 .poster-title {
   position: absolute;
@@ -179,3 +196,4 @@ body, html {
 .end-btn {
   margin: 20px;
 }
+
