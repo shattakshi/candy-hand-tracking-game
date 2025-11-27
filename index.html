@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candy Hand Catcher</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- TensorFlow + MediaPipe -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+</head>
+
+<body>
+
+<!-- PAGE 1 — POSTER -->
+<div id="page1" class="page poster-page">
+  <img src="assets/images/poster.jpg" class="poster-bg" />
+  <h1 class="poster-title">🍭 Candy Hand Catcher 🍭</h1>
+  <button id="nextBtn" class="btn poster-next">Next</button>
+</div>
+
+<!-- PAGE 2 — INSTRUCTIONS -->
+<div id="page2" class="page hidden">
+  <h1 class="title">🍬 How to Play 🍬</h1>
+
+  <div class="instructions-box">
+
+    <div class="inst-item">
+      <span class="inst-icon">🍬</span>
+      <span class="inst-text">
+        Catch candies to score points.<br>
+        Every candy gives <b>+5 points</b>.
+      </span>
+    </div>
+
+    <div class="inst-item">
+      <span class="inst-icon">💣</span>
+      <span class="inst-text">
+        Avoid bombs when they fall.<br>
+        Each bomb takes <b>-10 points</b>.
+      </span>
+    </div>
+
+    <div class="inst-item">
+      <span class="inst-icon">💔</span>
+      <span class="inst-text">
+        Do not miss falling candies.<br>
+        Miss <b>5 candies</b> = Game Over.
+      </span>
+    </div>
+
+    <div class="inst-item">
+      <span class="inst-icon">✋</span>
+      <span class="inst-text">
+        Use your hand to move the paddle.<br>
+        Move left, right, up and down.
+      </span>
+    </div>
+
+  </div>
+
+  <div class="instructions-buttons">
+    <button id="exitToEndBtn" class="btn exit">Exit</button>
+    <button id="startGameBtn" class="btn">Start</button>
+  </div>
+</div>
+
+<!-- PAGE 3 — GAME -->
+<div id="page3" class="page hidden">
+
+  <button id="menuBtn" class="menu-btn">☰ Menu</button>
+
+  <div id="menuPanel" class="menu-panel hidden">
+    <button id="resumeBtn" class="menu-item">Resume</button>
+    <button id="restartBtn" class="menu-item">Restart</button>
+    <button id="exitBtn" class="menu-item">Exit</button>
+  </div>
+
+  <div id="livesBox"></div>
+  <div id="scoreBox">Score: 0</div>
+
+  <video id="webcam" playsinline></video>
+  <canvas id="gameCanvas" width="640" height="480"></canvas>
+
+</div>
+
+<!-- PAGE 4 — GAME OVER -->
+<div id="page4" class="page hidden">
+  <h1 class="game-over-title">🎉 Game Over 🎉</h1>
+  <h2 id="finalScoreText">Score: 0</h2>
+  <p class="thanks">💖 Thank you for playing! 💖</p>
+
+  <button id="playAgainBtn" class="btn end-btn">Play Again</button>
+  <button id="exitToPosterBtn" class="btn exit end-btn">Exit</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
